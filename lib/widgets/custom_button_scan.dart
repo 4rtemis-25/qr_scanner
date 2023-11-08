@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:qr_scanner/theme/app_theme.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
 class CustomButtonScan extends StatelessWidget {
   const CustomButtonScan({super.key});
@@ -9,9 +9,11 @@ class CustomButtonScan extends StatelessWidget {
     return FloatingActionButton(
       elevation: 0,
       backgroundColor: Colors.red,
-      onPressed: () {},
+      onPressed: () async {
+        String barcodeScanRes = await FlutterBarcodeScanner.scanBarcode('#960010', 'Cancel', false, ScanMode.QR);
+      },
       child: 
-      Icon( Icons.filter_center_focus_outlined  )
+      const Icon( Icons.filter_center_focus_outlined  )
     );
   }
 }

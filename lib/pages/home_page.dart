@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:qr_scanner/models/scan_model.dart';
 import 'package:qr_scanner/pages/direcciones_page.dart';
 import 'package:qr_scanner/pages/historial_page.dart';
+import 'package:qr_scanner/provider/db_provider.dart';
+import 'package:qr_scanner/provider/ui_provider.dart';
 import 'package:qr_scanner/widgets/custom_button_scan.dart';
 import 'package:qr_scanner/widgets/custom_navigation_bar.dart';
 
@@ -29,20 +33,25 @@ class HomePage extends StatelessWidget {
 }
 
 class _HomeBody extends StatelessWidget {
-  const _HomeBody({super.key});
+  const _HomeBody();
 
   @override
   Widget build(BuildContext context) {
+
+    final uiProvider = Provider.of<UiProvider>(context);
     
-    final currentIndex = 0;
+    final currentIndex = uiProvider.selectedMenuOpt;
+
+    // final tempScan = ScanModel(valor: 'http://google.com');
+    DBProvider.db.getAllScans().then(print);
 
     switch( currentIndex ) {
       case 0:
-        return HistorialPage();
+        return const HistorialPage();
       case 1:
-        return DireccionesPage();
+        return const DireccionesPage();
       default:
-        return HistorialPage();
+        return const HistorialPage();
     }
 
   }
