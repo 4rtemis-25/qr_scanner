@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qr_scanner/widgets/scan_tiles.dart';
 
 class HistorialPage extends StatelessWidget {
    
@@ -6,10 +7,6 @@ class HistorialPage extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-         child: Text('MapasPages'),
-      ),
-    );
+    return const ScanTiles(tipo: 'geo');
   }
 }
