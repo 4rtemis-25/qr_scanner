@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:qr_scanner/theme/app_theme.dart';
+import 'package:provider/provider.dart';
+import 'package:qr_scanner/provider/ui_provider.dart';
 
 class CustomNavigationBarScreen extends StatelessWidget {
    
@@ -7,8 +8,15 @@ class CustomNavigationBarScreen extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
+
+    final uiProvider = Provider.of<UiProvider>(context);
+
+    final currentIndex = uiProvider.selectedMenuOpt;
+
     return BottomNavigationBar(
       selectedItemColor: Colors.red,
+      onTap: ( int i ) => uiProvider.selectedMenuOpt = i,
+      currentIndex: currentIndex,
       elevation: 0,
       items: const [
         BottomNavigationBarItem(
@@ -16,7 +24,7 @@ class CustomNavigationBarScreen extends StatelessWidget {
           label: 'Mapa',
         ),
         BottomNavigationBarItem(
-            icon: Icon(Icons.location_on),
+            icon: Icon(Icons.http),
             label: 'Direcciones'
         )
       ],
