@@ -62,7 +62,7 @@ class _MapaPageState extends State<MapaPage> {
       ),
       body: GoogleMap(
         myLocationButtonEnabled: true,
-        mapType: MapType.normal,
+        mapType: mapType,
         markers: markers,
         initialCameraPosition: puntoInicial,
         onMapCreated: (GoogleMapController controller) {

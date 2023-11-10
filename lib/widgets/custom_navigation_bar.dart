@@ -24,7 +24,7 @@ class CustomNavigationBarScreen extends StatelessWidget {
           label: 'Mapa',
         ),
         BottomNavigationBarItem(
-            icon: Icon(Icons.location_on),
+            icon: Icon(Icons.http),
             label: 'Direcciones'
         )
       ],
